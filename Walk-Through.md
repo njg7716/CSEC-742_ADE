@@ -4,7 +4,7 @@ You can watch a video walk-through here: https://youtu.be/WuDTcwCjZ5s
 enum4linux 192.168.50.135
 ```
 The only information you need to run this command is the IP address of the Domain controller which in my case was 192.168.50.135.
-![[Pasted image 20210415122818.png]]
+![](https://raw.githubusercontent.com/njg7716/CSEC-742_ADE/main/Pasted%20image%2020210415122818.png)
 We find that the SID is "S-1-5-21-3294894903-2995586124-3146476039"
 This will be used later when generating the silver ticket.
 
